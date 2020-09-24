@@ -1,0 +1,17 @@
+import os
+import shutil
+
+a= r"C:\Users\josep\Desktop"
+ba = input("Please select name of new folder: ")
+os.chdir(a)
+os.mkdir(ba)
+c = (a + "\\" + ba)
+dest = c
+
+source = r"C:\Users\josep\Desktop\CODING\Python"
+source_file = os.listdir(source)
+
+for files in source_file:
+    if files.endswith('.mp3'):
+        shutil.move(os.path.join(source, files), os.path.join(dest, files))
+        
