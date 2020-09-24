@@ -10,8 +10,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # reads Youtube code for links
+a = input("Enter Youtube Playlist URL: ")
+ba = input("Please select name of new folder: ")
 driver = webdriver.Chrome()
-driver.get(input("Enter Youtube Playlist URL: "))
+driver.minimize_window()
+driver.get(a)
 
 userdata = driver.find_elements_by_xpath('//*[@id="content"]/a')
 
@@ -49,7 +52,7 @@ for i in links:
 
 # Saves all MP3's to a new folder on Desktop
 a = r"C:\Users\josep\Desktop"
-ba = input("Please select name of new folder: ")
+
 os.chdir(a)
 os.mkdir(ba)
 c = (a + "\\" + ba)
@@ -61,5 +64,4 @@ source_file = os.listdir(source)
 for files in source_file:
     if files.endswith('.mp3'):
         shutil.move(os.path.join(source, files), os.path.join(dest, files))
-
 
