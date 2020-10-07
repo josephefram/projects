@@ -1,0 +1,5 @@
+import instaloader
+
+mod = instaloader.Instaloader()
+a = input("Enter Instagram Handle: ")
+mod.download_profile(profile_name=a)
